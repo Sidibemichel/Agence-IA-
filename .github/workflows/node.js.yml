@@ -21,11 +21,63 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    
+    # Validation 1: Vérifier package-lock.json
+    - name: Verify package-lock.json
+      run: |
+        if [ ! -f package-lock.json ]; then
+          echo "⚠️  Warning: package-lock.json not found"
+        fi
+    
+    # Validation 2: Installation avec vérification
+    - name: Install dependencies
+      run: npm ci
+      continue-on-error: false
+    
+    # Validation 3: Linting (si disponible)
+    - name: Run linter
+      run: npm run lint --if-present
+      continue-on-error: true
+    
+    # Validation 4: Build avec vérification stricte
+    - name: Build
+      run: npm run build --if-present
+      continue-on-error: false
+    
+    # Validation 5: Tests avec rapports
+    - name: Run tests
+      run: npm test -- --coverage
+      continue-on-error: false
+    
+    # Validation 6: Upload des rapports d'artifacts
+    - name: Upload build artifacts
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts-node-${{ matrix.node-version }}
+        path: |
+          dist/
+          build/
+          coverage/
+        retention-days: 30
+    
+    # Validation 7: Upload des rapports de couverture
+    - name: Upload coverage reports
+      if: always()
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage/lcov.info
+        flags: unittests
+        name: codecov-umbrella-${{ matrix.node-version }}
+        fail_ci_if_error: false
+    
+    # Validation 8: Notification en cas d'erreur
+    - name: Notify on failure
+      if: failure()
+      run: echo "❌ Workflow failed for Node.js ${{ matrix.node-version }}"
