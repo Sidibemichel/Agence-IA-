@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agence IA Tunis | Sites web et Chatbots qui vendent</title>
+<meta name="description" content="Agence IA à Tunis. On crée des sites web, chatbots et contenus vidéos IA qui génèrent des clients automatiquement.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { 'bg': '#0a0a0a', 'violet': '#8b5cf6' }
+      }
+    }
+  }
+</script>
+<style>
+  body { background: #0a0a0a; color: #fff; font-family: Inter, sans-serif; }
+  .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.5rem; }
+  .btn-violet { background: #8b5cf6; color: white; font-weight: 600; padding: 12px 24px; border-radius: 12px; transition: all 0.3s; box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+  .btn-violet:hover { background: rgba(139,92,246,0.8); }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 w-full glass z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <h1 class="font-bold text-xl text-violet">Agence IA Pro</h1>
+    <div class="hidden md:flex gap-6">
+      <a href="#services">Services</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#contact">Contact</a>
+      <a href="#horloge">Horloge</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center px-4 pt-20 text-center">
+  <div class="max-w-4xl">
+    <div class="inline-flex items-center gap-2 glass px-4 py-2 mb-6">
+      <span>✨ Agence IA #1 à Tunis</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+      On crée des <span class="text-violet">Sites & Chatbots IA</span> qui vendent
+    </h1>
+    <p class="text-lg md:text-xl text-gray-400 mb-8">
+      Stoppez de perdre des clients. On automatise votre prospection avec l'IA.
+    </p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="#contact" class="btn-violet">Prendre RDV Gratuit</a>
+      <a href="#horloge" class="glass px-6 py-3">Voir Démo Horloge</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="py-20 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Nos Services</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass p-8 hover:border-violet/50 transition">
+        <div class="text-4xl mb-4">🌐</div>
+        <h3 class="text-2xl font-bold mb-2">Sites Web IA</h3>
+        <p class="text-gray-400">Site vitrine qui convertit en 48h. Design glassmorphism.</p>
+      </div>
+      <div class="glass p-8 hover:border-violet/50 transition">
+        <div class="text-4xl mb-4">🤖</div>
+        <h3 class="text-2xl font-bold mb-2">Chatbots IA</h3>
+        <p class="text-gray-400">Répondez à vos clients 24/7 en Français et Arabe.</p>
+      </div>
+      <div class="glass p-8 hover:border-violet/50 transition">
+        <div class="text-4xl mb-4">🎬</div>
+        <h3 class="text-2xl font-bold mb-2">Contenu Vidéo IA</h3>
+        <p class="text-gray-400">30 vidéos/mois générées par IA pour exploser sur TikTok.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section id="temoignages" class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Ils nous font confiance</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="glass p-6">
+        <p class="text-gray-300 mb-4">"4000€ de CA en plus le 1er mois grâce au chatbot."</p>
+        <p class="font-bold text-violet">Ahmed, Restaurant Sousse</p>
+      </div>
+      <div class="glass p-6">
+        <p class="text-gray-300 mb-4">"Elle m'a fait 20 vidéos en 1 semaine. Résultat de fou."</p>
+        <p class="font-bold text-violet">Sara, Coach</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORLOGE MULTI-FUSEAUX -->
+<section id="horloge" class="py-20 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">Horloge Multi-Fuseaux</h2>
+    <div id="clock-grid" class="grid md:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-4">
+  <div class="max-w-xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-8">Parlons de votre projet</h2>
+    <form class="glass p-8" onsubmit="alert('Message envoyé ! On te répond en 24h'); this.reset(); return false;">
+      <input name="name" placeholder="Nom" class="w-full mb-4 p-3 rounded bg-white/5 border-white/10" required />
+      <input name="email" type="email" placeholder="Email" class="w-full mb-4 p-3 rounded bg-white/5 border-white/10" required />
+      <textarea name="message" placeholder="Votre projet" rows="4" class="w-full mb-4 p-3 rounded bg-white/5 border-white/10" required></textarea>
+      <button type="submit" class="btn-violet w-full">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-8 px-4 text-center text-gray-500">
+  <p>© 2026 Agence IA Pro Tunis. Tous droits réservés.</p>
+</footer>
+
+<script>
+// HORLOGE JS
+const zones = [
+  { name: "Tunis", tz: "Africa/Tunis" },
+  { name: "Paris", tz: "Europe/Paris" },
+  { name: "Dubaï", tz: "Asia/Dubai" },
+  { name: "New York", tz: "America/New_York" },
+  { name: "Londres", tz: "Europe/London" },
+  { name: "Tokyo", tz: "Asia/Tokyo" },
+]
+
+function updateClocks() {
+  const grid = document.getElementById('clock-grid');
+  grid.innerHTML = '';
+  zones.forEach(z => {
+    const time = new Date().toLocaleTimeString("fr-FR", { timeZone: z.tz });
+    grid.innerHTML += `
+      <div class="glass p-6 text-center">
+        <h3 class="text-2xl font-bold text-violet">${z.name}</h3>
+        <p class="text-3xl font-mono mt-2">${time}</p>
+      </div>
+    `;
+  });
+}
+updateClocks();
+setInterval(updateClocks, 1000);
+</script>
+
+</body>
+</html>
